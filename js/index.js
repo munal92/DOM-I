@@ -40,3 +40,41 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//change img source
+
+const headerImgSource = document.getElementById('cta-img');
+headerImgSource.setAttribute('src',siteContent["cta"][ "img-src"]);
+//middle img
+const middleImgSource = document.getElementById("middle-img");
+middleImgSource.setAttribute('src',siteContent['main-content']['middle-img-src']);
+
+//changing nav bar 
+
+const navbarCont = document.getElementsByTagName('a');
+let nav_i = 1;
+Array.from(navbarCont).forEach((navItem) => {
+        navItem.style.color = 'green';
+        navItem.textContent = siteContent["nav"][`nav-item-${nav_i}`];
+        nav_i++;
+});
+
+// updating header 
+
+//const contentHeader  = document.classSelectorAll("cta-text");
+const contentHeader  = document.querySelector(".cta-text");
+contentHeader.firstElementChild.textContent= siteContent["cta"]["h1"];
+contentHeader.childNodes[3].textContent= siteContent["cta"]["button"];
+
+//contentHeader.childNodes[1].textContent= siteContent["cta"]["h1"];
+//contentHeader.childNodes[3].textContent= siteContent["cta"]["h1"];
+
+console.log('a',contentHeader.firstChild);
+
+//main 
+
+const contentMain  = document.querySelector(".text-content");
+contentMain.childNodes[1].textContent= siteContent["main-content"]["features-h4"];
+contentMain.childNodes[2].textContent= siteContent["main-content"]["features-content"];
+contentMain.childNodes[3].textContent= siteContent["main-content"]["features-h4"];
+contentMain.childNodes[4].textContent= siteContent["main-content"]["features-content"];
