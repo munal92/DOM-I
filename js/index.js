@@ -72,9 +72,50 @@ contentHeader.childNodes[3].textContent= siteContent["cta"]["button"];
 console.log('a',contentHeader.firstChild);
 
 //main 
+contentMainArray = ["features","about","services","product","vision"];
+let contentMain  = document.querySelectorAll(".text-content h4");
+contentMain.forEach((item,index) => {
+  item.textContent = siteContent["main-content"][`${contentMainArray[index]}-h4`];
 
-const contentMain  = document.querySelector(".text-content");
-contentMain.childNodes[1].textContent= siteContent["main-content"]["features-h4"];
-contentMain.childNodes[2].textContent= siteContent["main-content"]["features-content"];
-contentMain.childNodes[3].textContent= siteContent["main-content"]["features-h4"];
-contentMain.childNodes[4].textContent= siteContent["main-content"]["features-content"];
+});
+
+//main content 
+let contentMainP  = document.querySelectorAll(".text-content p");
+contentMainP.forEach((item,index) => {
+  item.textContent = siteContent["main-content"][`${contentMainArray[index]}-content`];
+
+});
+
+
+//contact section
+let contactSecArry = ["address","phone","email"]
+let contactH4 = document.querySelector(".contact h4");
+contactH4.textContent =  siteContent["contact"]["contact-h4"];
+let contactSec = document.querySelectorAll(".contact p");
+
+contactSec.forEach((item,index) =>{
+item.textContent = siteContent["contact"][`${contactSecArry[index]}`];
+
+
+});
+
+
+let footerSect = document.querySelector('footer p');
+footerSect.textContent  = siteContent["footer"]["copyright"];
+
+
+//add 2 element to the navbar
+
+let newNavElmnt = document.createElement("a");
+newNavElmnt.textContent ="Map";
+let navb = document.querySelector("nav");
+navb.prepend(newNavElmnt);
+
+let newNavElmnt2 = document.createElement("a");
+ newNavElmnt2 = document.querySelector("nav a:nth-child(2)");
+newNavElmnt2.textContent ="Locations";
+header.appendChild(newNavElmnt2);
+
+
+
+
